@@ -1,0 +1,47 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body{
+height: 100%;
+width:100%;
+color: #000;
+}
+
+#quiz {
+    display: block;
+    width: 50%;
+    padding: 1rem;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.pointer-none{
+    pointer-events: none;
+}
+.options{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+}
+.options .option{
+    width: 46%;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: hotpink;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition:  all ease 400ms;
+}
+.options .option:hover{
+    transform: scale(1.1);
+    background-color: #000;
+    color: #fff;
+}
