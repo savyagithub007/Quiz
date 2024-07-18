@@ -26,6 +26,8 @@ const questions = [
 
 const userAnswers = [];
 
+
+const randomOrder = getARandomOrder();
 const questionDiv = document.querySelector(".question")
 const timerDiv = document.querySelector(".timer")
 const quizDiv = document.querySelector("#quiz")
@@ -100,11 +102,11 @@ paragraphs.forEach((para) =>{
 
   function checkUserAnswer(){
     //INSERT NULL IS USER DIDN'T ANSWER
-    if(isQuestionAnswered === flase) {
+    if(isQuestionAnswered === false) {
       userAnswers.push(null);
       console.log(userAnswers);
     }
-    //RESET VARIABLE TO FALSE IF USER ANSWERED
+    //RESET VARIABLE TO false IF USER ANSWERED
     else{
       isQuestionAnswered = false;
     }
@@ -128,4 +130,32 @@ function enableAllOptions() {
   paragraphs.forEach((para) =>{
     para.classList.remove("pointer-none");
   });
+}
+
+//RANDOM
+function printQuestion(){
+  questionDiv.innerHTML = `Q${count + 1}. ${questions[randomOrder[count]].q}`;
+  paragraphs.forEach((para, index) =>{
+    para.innerHTML = questions[randomOrder[count]].opt[index];
+  });
+}
+
+function calculateScore() {
+  let finalScore = 0;
+  userAnswers.forEach((userAnswers, index) =>{
+    if(userAnswers === questions[randomOrder[index]].a) finalScore++;
+  });
+  score.innerHTML = `${finalScore} / ${questions.length}`;
+}
+
+function getARandomOrder(){
+  let temp = [];
+  for(let i = 0; i < questions.length; i++){
+    const randomValue = Math.floor(Math.random() * questions.length);
+    if(temp.includes(randomValue)) return getARandomOrder();
+    else{
+      temp.push(randomValue);
+    }
+  }
+  return temp;
 }

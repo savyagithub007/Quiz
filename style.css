@@ -1,3 +1,7 @@
+@font-face {
+    font-family: rejouice;
+    src: url(./Rejouice-Headline.ttf);
+}
 * {
 margin: 0;
 padding: 0;
@@ -8,6 +12,7 @@ html, body{
 height: 100%;
 width:100%;
 color: #000;
+font-family: rejouice;
 }
 
 #quiz {
@@ -26,14 +31,18 @@ color: #000;
     pointer-events: none;
 }
 .options{
+    width: 50vw;
+    border: 1px solid #0000005e;
+    padding: 1vw 2vw;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 1vw;
+    gap: 2vw;
 }
 .options .option{
     width: 46%;
-    margin: 0.5rem;
-    padding: 0.5rem;
+    margin: 0.5vw 0;
+    padding: 0.7vw 0;
     background-color: hotpink;
     color: #fff;
     border-radius: 0.5rem;
@@ -42,6 +51,15 @@ color: #000;
 }
 .options .option:hover{
     transform: scale(1.1);
-    background-color: #000;
+    border: 1px dashed #000;
+    background-color: #E9DAC8;
     color: #fff;
+}
+
+
+button{
+    margin: 2vw 0;
+    padding: 7px 15px;
+    background-color: #b2b9c08f;
+    border: 1px solid #00000036;
 }
